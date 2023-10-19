@@ -1,0 +1,4 @@
+include:
+  - project: 'libs/packages'
+    ref: 49132916f3383f466078da393d8ca13b9a94aee0
+    file: '.gitlab-ci-npm16-publishing-template.yml'

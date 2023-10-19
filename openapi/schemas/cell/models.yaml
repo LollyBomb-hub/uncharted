@@ -1,0 +1,49 @@
+openapi: 3.0.3
+info:
+  title: Uncharted cell related models
+  description: Uncharted cell related models
+  version: 1.0.0
+
+paths:
+  /dummy:
+    summary: ""
+
+components:
+  schemas:
+    AxisTypeEnum:
+      description: "Type of axis. This information not for generation, but for users. For proper setup of settings!"
+      type: string
+      enum:
+        - CATEGORY_AXIS
+        - CATEGORY_DATE_AXIS
+        - DATE_AXIS
+        - GAPLESS_DATE_AXIS
+        - VALUE_AXIS
+        - DURATION_AXIS
+    VisualizationTypeEnum:
+      description: "Type of visualization"
+      type: string
+      enum:
+        - COLUMN_CHART
+        - CLUSTERED_COLUMN_CHART
+        - HIGHLIGHTING_CHART_SERIES
+        - PIE_CHART
+        - MULTILEVEL_TREE_MAP
+    ViewInfo:
+      type: object
+      description: "Response for view! Contains all needed for correct visualization."
+      required:
+        - visualizationType
+        - settings
+        - data
+      properties:
+        visualizationType:
+          $ref: "#/components/schemas/VisualizationTypeEnum"
+        settings:
+          type: string
+        handlers:
+          type: string
+        data:
+          type: string
+        preprocessor:
+          type: string

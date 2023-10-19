@@ -1,0 +1,25 @@
+openapi: 3.0.3
+info:
+  title: Uncharted responses
+  description: Uncharted responses
+  version: 1.0.0
+
+paths:
+  /dummy:
+    summary: "dummy for yaml validation"
+
+components:
+  responses:
+    GridResponse:
+      description: "Successfully returned information about grid"
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/models.yaml#/components/schemas/Grid"
+
+    ViewInfoResponse:
+      description: "Successfully returned information about specific view"
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/cell/models.yaml#/components/schemas/ViewInfo"

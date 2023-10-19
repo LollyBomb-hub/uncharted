@@ -1,0 +1,28 @@
+openapi: 3.0.3
+
+info:
+  title: uncharted
+  description: uncharted
+  version: 1.0.0
+
+paths:
+
+  /uncharted/info:
+    description: "Path used to resolve info about visualization"
+    get:
+      operationId: getInformationAboutGrid
+      summary: "Operation to get info about grid"
+      responses:
+        200:
+          $ref: "../responses/responses.yaml#/components/responses/GridResponse"
+
+  /uncharted/info/{gridCellIdentifier}:
+    description: "Path used to resolve data for specific visualization"
+    parameters:
+      - $ref: "../parameters/parameters.yaml#/components/parameters/GridCellIdentifier"
+    get:
+      operationId: getGridCellData
+      summary: "Get information to visualize"
+      responses:
+        200:
+          $ref: "../responses/responses.yaml#/components/responses/ViewInfoResponse"

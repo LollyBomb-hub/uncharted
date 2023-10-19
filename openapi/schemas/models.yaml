@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: Uncharted grid related models
+  description: Uncharted grid related models
+  version: 1.0.0
+
+paths:
+  /dummy:
+    summary: ""
+
+components:
+  schemas:
+    GridCellIdentifier:
+      description: "Grid cell unique identifier"
+      type: integer
+      format: int64
+    GridInfo:
+      type: object
+      description: "Description of grid cell"
+      required:
+        - x
+        - y
+      properties:
+        x:
+          description: "X axis position"
+          type: integer
+        y:
+          description: "Y axis position"
+          type: integer
+        colspan:
+          description: "Colspan info"
+          type: integer
+          default: 1
+        rowspan:
+          description: "Rowspan info"
+          type: integer
+          default: 1
+        maxH:
+          description: "Maximum height"
+          type: integer
+          default: 1
+        maxW:
+          description: "Maximum width"
+          type: integer
+          default: 1
+        minH:
+          description: "Minimum height"
+          type: integer
+          default: 1
+        minW:
+          description: "Minimum width"
+          type: integer
+          default: 1
+    GridCell:
+      type: object
+      description: "Description of grid cell"
+      required:
+        - identifier
+        - grid
+      properties:
+        identifier:
+          $ref: "#/components/schemas/GridCellIdentifier"
+        grid:
+          $ref: "#/components/schemas/GridInfo"
+    Grid:
+      type: object
+      description: "Description of whole grid"
+      required:
+        - cols
+        - cells
+      properties:
+        cols:
+          description: "Count of columns"
+          type: integer
+        cells:
+          type: array
+          description: "Array of desciptions of cells"
+          items:
+            $ref: "#/components/schemas/GridCell"

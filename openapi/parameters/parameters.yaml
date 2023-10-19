@@ -1,0 +1,19 @@
+openapi: 3.0.3
+info:
+  title: uncharted parameters
+  description: uncharted parameters
+  version: 1.0.0
+
+paths:
+  /dummy:
+    summary: "dummy for yaml validation"
+
+components:
+  parameters:
+    GridCellIdentifier:
+      description: ""
+      name: gridCellIdentifier
+      in: path
+      required: true
+      schema:
+        $ref: "../schemas/models.yaml#/components/schemas/GridCellIdentifier"
